@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class Main {
                 "프로젝트 계획서 수정",
                 "팀 멤버와의 1:1 면담"
         };
+        TodoList_list todoListList = new TodoList_list();
 
         // 프로그램 시작
         while (true) {
@@ -31,29 +33,26 @@ public class Main {
 //            save(username, input);
 
             // 종료 여부 입력
-            while (true) {
+            String input = sc.nextLine();
+            System.out.println("종료 여부: " + input);
 
-                String input = sc.nextLine();
-                System.out.println("종료 여부: " + input);
-
-                if (input.equalsIgnoreCase("x")) {
-                    return;
-                } else if (input.equalsIgnoreCase("q")) {
-                    break;
-                } else if (input.equalsIgnoreCase("c")) {
-                    continue;
-                }
+            if (input.equalsIgnoreCase("x")) {
+                return;
+            } else if (input.equalsIgnoreCase("q")) {
+                break;
+            } else if (input.equalsIgnoreCase("c")) {
+                continue;
             }
         }
 
 
         // 결과값 받기
-        List<Map<String, Map<String, String>>> todoList = todoListList.output();
+        List<HashMap<String, HashMap<String, String>>> todoList = todoListList.output();
         System.out.println("참여자별 ToDo list 진행 현황");
 
         // 결과 출력
-        for (Map<String, Map<String, String>> userTodo : todoList) {
-            for (Map.Entry<String, Map<String, String>> userEntry : userTodo.entrySet()) {
+        for (HashMap<String, HashMap<String, String>> userTodo : todoList) {
+            for (HashMap.Entry<String, HashMap<String, String>> userEntry : userTodo.entrySet()) {
 
                 System.out.printf("- %s\n", userEntry.getKey());
 
