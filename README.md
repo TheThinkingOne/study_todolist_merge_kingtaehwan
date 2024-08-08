@@ -1,4 +1,4 @@
-# 실행 화면 개요(Not Finished)
+# 🚀실행 화면 개요(Not Finished)
 
 Input Your Name: lky
 진행 기호 : c - 계속 입력, q - 다음 참여자로 넘기기, x - 모든 입력 종료
